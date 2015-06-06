@@ -1,0 +1,4 @@
+64 bytes from 178-175-132-235.ip.as43289.net (178.175.132.235): icmp_seq=1 ttl=46 time=228 ms
+64 bytes from 178-175-132-235.ip.as43289.net (178.175.132.235): icmp_seq=2 ttl=46 time=241 ms
+64 bytes from 178-175-132-235.ip.as43289.net (178.175.132.235): icmp_seq=3 ttl=46 time=234 ms
+3 packets transmitted, 3 received, 0% packet loss, time 2001ms

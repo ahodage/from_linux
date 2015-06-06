@@ -1,0 +1,25 @@
+
+
+
+ this
+ file is created to test file operation 
+ in perl scripting.
+ This document is just one such example of
+ how we can edit ,view, modify files using 
+ perl.
+ Perl provides us with a much simpler syntax
+ and methods to perform file operations
+
+
+THIS ADDITIONS BELOW ARE PERFORMED USING FILE OPERATION IN PERL
+
+ the localtime is :Fri May 29 17:45:12 2015
+the localtime is :Fri May 29 17:45:12 2015
+the localtime is :Fri May 29 17:45:12 2015
+the localtime is :Fri May 29 17:45:12 2015
+the localtime is :Fri May 29 17:45:12 2015
+the localtime is :Fri May 29 17:45:12 2015
+the localtime is :Fri May 29 17:45:12 2015
+the localtime is :Fri May 29 17:45:12 2015
+the localtime is :Fri May 29 17:45:12 2015
+the localtime is :Fri May 29 17:45:12 2015

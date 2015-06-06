@@ -1,0 +1,16 @@
+
+Note: Get to know how to use the command "ln" that creates link between 2 files 
+
+COMMANDS:
+
+Search files in directories
+	-locate
+	-find
+
+create new empty file
+	-touch
+
+Remove a file 
+	-rm 
+	-rm -f	remove files forcefully
+	-rm -i	remove files interactively

@@ -1,0 +1,65 @@
+# Format: clock  timeReq  slackR/slackF  setupR/setupF  instName/pinName   # cycle(s)
+clk(R)->clk(R)	1.401    0.045/*         0.125/*         \out_reg[15] /D    1
+clk(R)->clk(R)	1.402    0.136/*         0.124/*         \out_reg[14] /D    1
+clk(R)->clk(R)	1.402    0.262/*         0.125/*         \out_reg[13] /D    1
+clk(R)->clk(R)	1.402    0.298/*         0.125/*         \out_reg[12] /D    1
+clk(R)->clk(R)	1.386    0.358/*         0.144/*         \out_reg[11] /D    1
+clk(R)->clk(R)	1.387    0.440/*         0.142/*         \out_reg[10] /D    1
+clk(R)->clk(R)	1.385    0.580/*         0.144/*         \out_reg[9] /D    1
+clk(R)->clk(R)	1.385    0.650/*         0.145/*         \out_reg[8] /D    1
+clk(R)->clk(R)	1.402    0.704/*         0.125/*         \out_reg[7] /D    1
+clk(R)->clk(R)	1.385    0.779/*         0.144/*         \out_reg[5] /D    1
+clk(R)->clk(R)	1.402    0.785/*         0.125/*         \out_reg[6] /D    1
+clk(R)->clk(R)	1.385    0.884/*         0.144/*         \out_reg[4] /D    1
+clk(R)->clk(R)	1.385    0.938/*         0.144/*         \out_reg[3] /D    1
+clk(R)->clk(R)	1.387    1.013/*         0.144/*         \out_reg[1] /D    1
+clk(R)->clk(R)	1.385    1.021/*         0.145/*         \out_reg[2] /D    1
+clk(R)->clk(R)	1.387    1.103/*         0.144/*         \out_reg[0] /D    1
+clk(R)->clk(R)	1.400    */1.185         */0.100         out[13]    1
+clk(R)->clk(R)	1.400    */1.186         */0.100         out[12]    1
+clk(R)->clk(R)	1.435    */1.186         */0.096         \a_reg_reg[5] /D    1
+clk(R)->clk(R)	1.435    */1.196         */0.096         \b_reg_reg[4] /D    1
+clk(R)->clk(R)	1.435    */1.197         */0.096         \b_reg_reg[3] /D    1
+clk(R)->clk(R)	1.434    */1.202         */0.096         \b_reg_reg[2] /D    1
+clk(R)->clk(R)	1.435    */1.203         */0.096         \b_reg_reg[1] /D    1
+clk(R)->clk(R)	1.435    */1.203         */0.096         \b_reg_reg[0] /D    1
+clk(R)->clk(R)	1.435    */1.203         */0.096         \a_reg_reg[0] /D    1
+clk(R)->clk(R)	1.435    */1.206         */0.096         \a_reg_reg[3] /D    1
+clk(R)->clk(R)	1.435    */1.207         */0.096         \a_reg_reg[1] /D    1
+clk(R)->clk(R)	1.435    */1.207         */0.096         \a_reg_reg[4] /D    1
+clk(R)->clk(R)	1.400    */1.219         */0.100         out[5]    1
+clk(R)->clk(R)	1.400    */1.220         */0.100         out[6]    1
+clk(R)->clk(R)	1.400    */1.220         */0.100         out[11]    1
+clk(R)->clk(R)	1.435    */1.221         */0.096         \a_reg_reg[2] /D    1
+clk(R)->clk(R)	1.460    */1.222         */0.067         \b_reg_reg[8] /D    1
+clk(R)->clk(R)	1.461    */1.224         */0.067         \a_reg_reg[12] /D    1
+clk(R)->clk(R)	1.400    */1.224         */0.100         out[0]    1
+clk(R)->clk(R)	1.461    */1.225         */0.067         \a_reg_reg[11] /D    1
+clk(R)->clk(R)	1.400    */1.225         */0.100         out[4]    1
+clk(R)->clk(R)	1.461    */1.226         */0.067         \b_reg_reg[7] /D    1
+clk(R)->clk(R)	1.400    */1.226         */0.100         out[8]    1
+clk(R)->clk(R)	1.400    */1.226         */0.100         out[3]    1
+clk(R)->clk(R)	1.400    */1.226         */0.100         out[10]    1
+clk(R)->clk(R)	1.400    */1.226         */0.100         out[9]    1
+clk(R)->clk(R)	1.461    */1.227         */0.067         \b_reg_reg[12] /D    1
+clk(R)->clk(R)	1.400    */1.227         */0.100         out[2]    1
+clk(R)->clk(R)	1.461    */1.227         */0.067         \a_reg_reg[10] /D    1
+clk(R)->clk(R)	1.460    */1.228         */0.067         \a_reg_reg[8] /D    1
+clk(R)->clk(R)	1.461    */1.228         */0.067         \b_reg_reg[6] /D    1
+clk(R)->clk(R)	1.461    */1.229         */0.067         \a_reg_reg[14] /D    1
+clk(R)->clk(R)	1.400    */1.229         */0.100         out[1]    1
+clk(R)->clk(R)	1.400    */1.229         */0.100         out[14]    1
+clk(R)->clk(R)	1.400    */1.230         */0.100         out[15]    1
+clk(R)->clk(R)	1.400    */1.232         */0.100         out[7]    1
+clk(R)->clk(R)	1.461    */1.232         */0.067         \a_reg_reg[6] /D    1
+clk(R)->clk(R)	1.461    */1.234         */0.067         \b_reg_reg[11] /D    1
+clk(R)->clk(R)	1.461    */1.235         */0.067         \b_reg_reg[13] /D    1
+clk(R)->clk(R)	1.462    */1.239         */0.067         \b_reg_reg[15] /D    1
+clk(R)->clk(R)	1.460    */1.240         */0.067         \b_reg_reg[9] /D    1
+clk(R)->clk(R)	1.461    */1.241         */0.067         \b_reg_reg[10] /D    1
+clk(R)->clk(R)	1.461    */1.242         */0.067         \a_reg_reg[9] /D    1
+clk(R)->clk(R)	1.461    */1.244         */0.067         \a_reg_reg[15] /D    1
+clk(R)->clk(R)	1.461    */1.245         */0.067         \a_reg_reg[13] /D    1
+clk(R)->clk(R)	1.461    */1.246         */0.067         \b_reg_reg[5] /D    1
+clk(R)->clk(R)	1.462    */1.247         */0.067         \b_reg_reg[14] /D    1
+clk(R)->clk(R)	1.461    */1.251         */0.067         \a_reg_reg[7] /D    1

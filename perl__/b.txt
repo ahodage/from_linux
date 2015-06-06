@@ -1,0 +1,8 @@
+
+
+
+#this file is created for testing file handling
+#operation/capability of perl
+
+This is file "B"
+

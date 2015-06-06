@@ -1,0 +1,5 @@
+
+all:	#this is the first target. By default the make command will execute this target
+complile:	#to execute this part you have to specify this in make command e.g. "make compile"
+	g++ main.cpp function1.cpp function2.cpp -o hello
+	
