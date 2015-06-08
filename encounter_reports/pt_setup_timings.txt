@@ -1,0 +1,603 @@
+****************************************
+Report : timing
+	-path_type full
+	-delay_type max
+	-max_paths 10
+Design : adder
+Version: D-2009.12-SP1
+Date   : Mon Feb  9 14:44:14 2015
+****************************************
+
+
+  Startpoint: a_reg_reg[0]
+               (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: out_reg[15]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  ------------------------------------------------------------------------------
+  a_reg_reg[0]/CLK (DFFASx02)                         0.000000   0.000000 r
+  a_reg_reg[0]/Q (DFFASx02)                           0.119717 & 0.119717 r
+  add_16_26/A[0] (add_unsigned_3)                     0.000000 & 0.119717 r
+  add_16_26/FE_OCPUNCOC150_a_reg_0_/Y (BUFNIx08)      0.022892 & 0.142610 r
+  add_16_26/FE_OCPUNCOC149_a_reg_0_/Y (BUFNICLKx08)   0.020026 & 0.162636 r
+  add_16_26/g1129/Y (NAND2CLKx06)                     0.006508 & 0.169144 f
+  add_16_26/g1335/Y (OR2x04)                          0.039440 & 0.208584 f
+  add_16_26/g1103/Y (NAND2CLKx06)                     0.015621 & 0.224205 r
+  add_16_26/FE_OCPUNCOC151_n_116/Y (BUFNIx08)         0.022892 & 0.247097 r
+  add_16_26/drc1270/Y (INVx07)                        0.003187 & 0.250284 f
+  add_16_26/drc1268/Y (INVx04)                        0.010337 & 0.260621 r
+  add_16_26/g1099/Y (AOI22x01)                        0.012246 & 0.272867 f
+  add_16_26/FE_OCPUNCOC152_n_28/Y (BUFNIx04)          0.036682 & 0.309549 f
+  add_16_26/g1333/Y (OR2CLKx07)                       0.033730 & 0.343279 f
+  add_16_26/g1094/Y (NAND2CLKx08)                     0.013293 & 0.356572 r
+  add_16_26/g1091/Y (AOI22x01)                        0.012416 & 0.368988 f
+  add_16_26/FE_OCPUNCOC153_n_21/Y (BUFNIx03)          0.034332 & 0.403320 f
+  add_16_26/FE_OCPUNCOC162_n_21/Y (BUFNIx08)          0.022726 & 0.426046 f
+  add_16_26/g1332/Y (OR2CLKx06)                       0.034110 & 0.460156 f
+  add_16_26/g1086/Y (NAND2CLKx08)                     0.012706 & 0.472862 r
+  add_16_26/g1083/Y (AOI22x01)                        0.012777 & 0.485638 f
+  add_16_26/FE_OCPUNCOC164_n_22/Y (BUFNIx04)          0.033493 & 0.519131 f
+  add_16_26/FE_OCPUNCOC163_n_22/Y (BUFNICLKx08)       0.023625 & 0.542756 f
+  add_16_26/FE_RC_7_0/Y (NOR2x07)                     0.013901 & 0.556658 r
+  add_16_26/g1079/Y (NOR2x07)                         0.011080 & 0.567737 f
+  add_16_26/FE_OCPUNCOC165_n_128/Y (BUFNIx04)         0.031737 & 0.599474 f
+  add_16_26/drc1188/Y (INVx07)                        0.012888 & 0.612363 r
+  add_16_26/drc1186/Y (INVx07)                        0.003002 & 0.615364 f
+  add_16_26/g1073/Y (NOR3x02)                         0.024596 & 0.639961 r
+  add_16_26/FE_OCPUNCOC166_n_63/Y (BUFNIx04)          0.025548 & 0.665508 r
+  add_16_26/g1072/Y (AOI211x01)                       0.020145 & 0.685654 f
+  add_16_26/FE_OCPUNCOC167_n_26/Y (BUFNIx04)          0.039683 & 0.725337 f
+  add_16_26/g1331/Y (OR2CLKx06)                       0.038035 & 0.763372 f
+  add_16_26/g1066/Y (NAND2CLKx08)                     0.013560 & 0.776932 r
+  add_16_26/drc1258/Y (INVx05)                        0.003483 & 0.780416 f
+  add_16_26/drc1256/Y (INVx04)                        0.011630 & 0.792045 r
+  add_16_26/g1063/Y (AOI22x01)                        0.012623 & 0.804668 f
+  add_16_26/FE_OCPUNCOC169_n_23/Y (BUFNIx04)          0.032897 & 0.837565 f
+  add_16_26/FE_OCPUNCOC168_n_23/Y (BUFNICLKx08)       0.021564 & 0.859129 f
+  add_16_26/g2/Y (OR2CLKx06)                          0.029346 & 0.888475 f
+  add_16_26/g1058/Y (NAND2CLKx06)                     0.013758 & 0.902232 r
+  add_16_26/FE_OCPUNCOC170_n_138/Y (BUFNIx08)         0.020196 & 0.922428 r
+  add_16_26/drc1262/Y (INVx07)                        0.004805 & 0.927233 f
+  add_16_26/drc1260/Y (INVx07)                        0.008546 & 0.935779 r
+  add_16_26/g1055/Y (AOI22x01)                        0.012057 & 0.947836 f
+  add_16_26/FE_OCPUNCOC172_n_24/Y (BUFNIx04)          0.032391 & 0.980227 f
+  add_16_26/FE_OCPUNCOC171_n_24/Y (BUFNICLKx08)       0.023298 & 1.003525 f
+  add_16_26/g1053/Y (NOR2x07)                         0.013879 & 1.017404 r
+  add_16_26/g1051/Y (NOR2x07)                         0.007559 & 1.024963 f
+  add_16_26/g1049/Y (MUX21Dx01)                       0.054692 & 1.079655 f
+  add_16_26/Z[15] (add_unsigned_3)                    0.000000 & 1.079655 f
+  out_reg[15]/D (DFFARSx04)                           0.000001 & 1.079656 f
+  data arrival time                                              1.079656
+
+  max_delay                                           1.500000   1.500000
+  library setup time                                  -0.069302  1.430698
+  data required time                                             1.430698
+  ------------------------------------------------------------------------------
+  data required time                                             1.430698
+  data arrival time                                              -1.079656
+  ------------------------------------------------------------------------------
+  slack (MET)                                                    0.351042
+
+
+  Startpoint: a_reg_reg[0]
+               (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: out_reg[14]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  ------------------------------------------------------------------------------
+  a_reg_reg[0]/CLK (DFFASx02)                         0.000000   0.000000 r
+  a_reg_reg[0]/Q (DFFASx02)                           0.119717 & 0.119717 r
+  add_16_26/A[0] (add_unsigned_3)                     0.000000 & 0.119717 r
+  add_16_26/FE_OCPUNCOC150_a_reg_0_/Y (BUFNIx08)      0.022892 & 0.142610 r
+  add_16_26/FE_OCPUNCOC149_a_reg_0_/Y (BUFNICLKx08)   0.020026 & 0.162636 r
+  add_16_26/g1129/Y (NAND2CLKx06)                     0.006508 & 0.169144 f
+  add_16_26/g1335/Y (OR2x04)                          0.039440 & 0.208584 f
+  add_16_26/g1103/Y (NAND2CLKx06)                     0.015621 & 0.224205 r
+  add_16_26/FE_OCPUNCOC151_n_116/Y (BUFNIx08)         0.022892 & 0.247097 r
+  add_16_26/drc1270/Y (INVx07)                        0.003187 & 0.250284 f
+  add_16_26/drc1268/Y (INVx04)                        0.010337 & 0.260621 r
+  add_16_26/g1099/Y (AOI22x01)                        0.012246 & 0.272867 f
+  add_16_26/FE_OCPUNCOC152_n_28/Y (BUFNIx04)          0.036682 & 0.309549 f
+  add_16_26/g1333/Y (OR2CLKx07)                       0.033730 & 0.343279 f
+  add_16_26/g1094/Y (NAND2CLKx08)                     0.013293 & 0.356572 r
+  add_16_26/g1091/Y (AOI22x01)                        0.012416 & 0.368988 f
+  add_16_26/FE_OCPUNCOC153_n_21/Y (BUFNIx03)          0.034332 & 0.403320 f
+  add_16_26/FE_OCPUNCOC162_n_21/Y (BUFNIx08)          0.022726 & 0.426046 f
+  add_16_26/g1332/Y (OR2CLKx06)                       0.034110 & 0.460156 f
+  add_16_26/g1086/Y (NAND2CLKx08)                     0.012706 & 0.472862 r
+  add_16_26/g1083/Y (AOI22x01)                        0.012777 & 0.485638 f
+  add_16_26/FE_OCPUNCOC164_n_22/Y (BUFNIx04)          0.033493 & 0.519131 f
+  add_16_26/FE_OCPUNCOC163_n_22/Y (BUFNICLKx08)       0.023625 & 0.542756 f
+  add_16_26/FE_RC_7_0/Y (NOR2x07)                     0.013901 & 0.556658 r
+  add_16_26/g1079/Y (NOR2x07)                         0.011080 & 0.567737 f
+  add_16_26/FE_OCPUNCOC165_n_128/Y (BUFNIx04)         0.031737 & 0.599474 f
+  add_16_26/drc1188/Y (INVx07)                        0.012888 & 0.612363 r
+  add_16_26/drc1186/Y (INVx07)                        0.003002 & 0.615364 f
+  add_16_26/g1073/Y (NOR3x02)                         0.024596 & 0.639961 r
+  add_16_26/FE_OCPUNCOC166_n_63/Y (BUFNIx04)          0.025548 & 0.665508 r
+  add_16_26/g1072/Y (AOI211x01)                       0.020145 & 0.685654 f
+  add_16_26/FE_OCPUNCOC167_n_26/Y (BUFNIx04)          0.039683 & 0.725337 f
+  add_16_26/g1331/Y (OR2CLKx06)                       0.038035 & 0.763372 f
+  add_16_26/g1066/Y (NAND2CLKx08)                     0.013560 & 0.776932 r
+  add_16_26/drc1258/Y (INVx05)                        0.003483 & 0.780416 f
+  add_16_26/drc1256/Y (INVx04)                        0.011630 & 0.792045 r
+  add_16_26/g1063/Y (AOI22x01)                        0.012623 & 0.804668 f
+  add_16_26/FE_OCPUNCOC169_n_23/Y (BUFNIx04)          0.032897 & 0.837565 f
+  add_16_26/FE_OCPUNCOC168_n_23/Y (BUFNICLKx08)       0.021564 & 0.859129 f
+  add_16_26/g2/Y (OR2CLKx06)                          0.029346 & 0.888475 f
+  add_16_26/g1058/Y (NAND2CLKx06)                     0.013758 & 0.902232 r
+  add_16_26/FE_OCPUNCOC170_n_138/Y (BUFNIx08)         0.020196 & 0.922428 r
+  add_16_26/drc1262/Y (INVx07)                        0.004805 & 0.927233 f
+  add_16_26/drc1260/Y (INVx07)                        0.008546 & 0.935779 r
+  add_16_26/g1055/Y (AOI22x01)                        0.012057 & 0.947836 f
+  add_16_26/FE_OCPUNCOC172_n_24/Y (BUFNIx04)          0.032391 & 0.980227 f
+  add_16_26/FE_OCPUNCOC171_n_24/Y (BUFNICLKx08)       0.023298 & 1.003525 f
+  add_16_26/g1052/Y (MUX21Dx01)                       0.049815 & 1.053340 f
+  add_16_26/FE_OFCC99_add_out_14_/Y (BUFNIx04)        0.027801 & 1.081141 f
+  add_16_26/Z[14] (add_unsigned_3)                    0.000000 & 1.081141 f
+  out_reg[14]/D (DFFARSx04)                           0.000044 & 1.081185 f
+  data arrival time                                              1.081185
+
+  max_delay                                           1.500000   1.500000
+  library setup time                                  -0.065939  1.434061
+  data required time                                             1.434061
+  ------------------------------------------------------------------------------
+  data required time                                             1.434061
+  data arrival time                                              -1.081185
+  ------------------------------------------------------------------------------
+  slack (MET)                                                    0.352876
+
+
+  Startpoint: a_reg_reg[0]
+               (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: out_reg[13]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  ------------------------------------------------------------------------------
+  a_reg_reg[0]/CLK (DFFASx02)                         0.000000   0.000000 r
+  a_reg_reg[0]/Q (DFFASx02)                           0.119717 & 0.119717 r
+  add_16_26/A[0] (add_unsigned_3)                     0.000000 & 0.119717 r
+  add_16_26/FE_OCPUNCOC150_a_reg_0_/Y (BUFNIx08)      0.022892 & 0.142610 r
+  add_16_26/FE_OCPUNCOC149_a_reg_0_/Y (BUFNICLKx08)   0.020026 & 0.162636 r
+  add_16_26/g1129/Y (NAND2CLKx06)                     0.006508 & 0.169144 f
+  add_16_26/g1335/Y (OR2x04)                          0.039440 & 0.208584 f
+  add_16_26/g1103/Y (NAND2CLKx06)                     0.015621 & 0.224205 r
+  add_16_26/FE_OCPUNCOC151_n_116/Y (BUFNIx08)         0.022892 & 0.247097 r
+  add_16_26/drc1270/Y (INVx07)                        0.003187 & 0.250284 f
+  add_16_26/drc1268/Y (INVx04)                        0.010337 & 0.260621 r
+  add_16_26/g1099/Y (AOI22x01)                        0.012246 & 0.272867 f
+  add_16_26/FE_OCPUNCOC152_n_28/Y (BUFNIx04)          0.036682 & 0.309549 f
+  add_16_26/g1333/Y (OR2CLKx07)                       0.033730 & 0.343279 f
+  add_16_26/g1094/Y (NAND2CLKx08)                     0.013293 & 0.356572 r
+  add_16_26/g1091/Y (AOI22x01)                        0.012416 & 0.368988 f
+  add_16_26/FE_OCPUNCOC153_n_21/Y (BUFNIx03)          0.034332 & 0.403320 f
+  add_16_26/FE_OCPUNCOC162_n_21/Y (BUFNIx08)          0.022726 & 0.426046 f
+  add_16_26/g1332/Y (OR2CLKx06)                       0.034110 & 0.460156 f
+  add_16_26/g1086/Y (NAND2CLKx08)                     0.012706 & 0.472862 r
+  add_16_26/g1083/Y (AOI22x01)                        0.012777 & 0.485638 f
+  add_16_26/FE_OCPUNCOC164_n_22/Y (BUFNIx04)          0.033493 & 0.519131 f
+  add_16_26/FE_OCPUNCOC163_n_22/Y (BUFNICLKx08)       0.023626 & 0.542756 f
+  add_16_26/FE_RC_7_0/Y (NOR2x07)                     0.013901 & 0.556658 r
+  add_16_26/g1079/Y (NOR2x07)                         0.011080 & 0.567737 f
+  add_16_26/FE_OCPUNCOC165_n_128/Y (BUFNIx04)         0.031737 & 0.599474 f
+  add_16_26/drc1188/Y (INVx07)                        0.012888 & 0.612363 r
+  add_16_26/drc1186/Y (INVx07)                        0.003002 & 0.615364 f
+  add_16_26/g1073/Y (NOR3x02)                         0.024596 & 0.639961 r
+  add_16_26/FE_OCPUNCOC166_n_63/Y (BUFNIx04)          0.025548 & 0.665508 r
+  add_16_26/g1072/Y (AOI211x01)                       0.020145 & 0.685654 f
+  add_16_26/FE_OCPUNCOC167_n_26/Y (BUFNIx04)          0.039683 & 0.725337 f
+  add_16_26/g1331/Y (OR2CLKx06)                       0.038035 & 0.763372 f
+  add_16_26/g1066/Y (NAND2CLKx08)                     0.013560 & 0.776932 r
+  add_16_26/drc1258/Y (INVx05)                        0.003483 & 0.780415 f
+  add_16_26/drc1256/Y (INVx04)                        0.011630 & 0.792045 r
+  add_16_26/g1063/Y (AOI22x01)                        0.012623 & 0.804668 f
+  add_16_26/FE_OCPUNCOC169_n_23/Y (BUFNIx04)          0.032897 & 0.837565 f
+  add_16_26/FE_OCPUNCOC168_n_23/Y (BUFNICLKx08)       0.021564 & 0.859129 f
+  add_16_26/g2/Y (OR2CLKx06)                          0.029346 & 0.888475 f
+  add_16_26/g1058/Y (NAND2CLKx06)                     0.013758 & 0.902232 r
+  add_16_26/FE_OCPUNCOC170_n_138/Y (BUFNIx08)         0.020196 & 0.922428 r
+  add_16_26/drc1262/Y (INVx07)                        0.004805 & 0.927233 f
+  add_16_26/g1056/Y (MUX21Dx01)                       0.052027 & 0.979259 f
+  add_16_26/FE_OFCC78_add_out_13_/Y (BUFNIx03)        0.030908 & 1.010168 f
+  add_16_26/Z[13] (add_unsigned_3)                    0.000000 & 1.010168 f
+  out_reg[13]/D (DFFARSx04)                           0.000001 & 1.010168 f
+  data arrival time                                              1.010168
+
+  max_delay                                           1.500000   1.500000
+  library setup time                                  -0.066239  1.433761
+  data required time                                             1.433761
+  ------------------------------------------------------------------------------
+  data required time                                             1.433761
+  data arrival time                                              -1.010168
+  ------------------------------------------------------------------------------
+  slack (MET)                                                    0.423593
+
+
+  Startpoint: a_reg_reg[0]
+               (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: out_reg[12]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  ------------------------------------------------------------------------------
+  a_reg_reg[0]/CLK (DFFASx02)                         0.000000   0.000000 r
+  a_reg_reg[0]/Q (DFFASx02)                           0.119717 & 0.119717 r
+  add_16_26/A[0] (add_unsigned_3)                     0.000000 & 0.119717 r
+  add_16_26/FE_OCPUNCOC150_a_reg_0_/Y (BUFNIx08)      0.022892 & 0.142610 r
+  add_16_26/FE_OCPUNCOC149_a_reg_0_/Y (BUFNICLKx08)   0.020026 & 0.162636 r
+  add_16_26/g1129/Y (NAND2CLKx06)                     0.006508 & 0.169144 f
+  add_16_26/g1335/Y (OR2x04)                          0.039440 & 0.208584 f
+  add_16_26/g1103/Y (NAND2CLKx06)                     0.015621 & 0.224205 r
+  add_16_26/FE_OCPUNCOC151_n_116/Y (BUFNIx08)         0.022892 & 0.247097 r
+  add_16_26/drc1270/Y (INVx07)                        0.003187 & 0.250284 f
+  add_16_26/drc1268/Y (INVx04)                        0.010337 & 0.260621 r
+  add_16_26/g1099/Y (AOI22x01)                        0.012246 & 0.272867 f
+  add_16_26/FE_OCPUNCOC152_n_28/Y (BUFNIx04)          0.036682 & 0.309549 f
+  add_16_26/g1333/Y (OR2CLKx07)                       0.033730 & 0.343279 f
+  add_16_26/g1094/Y (NAND2CLKx08)                     0.013293 & 0.356572 r
+  add_16_26/g1091/Y (AOI22x01)                        0.012416 & 0.368988 f
+  add_16_26/FE_OCPUNCOC153_n_21/Y (BUFNIx03)          0.034332 & 0.403320 f
+  add_16_26/FE_OCPUNCOC162_n_21/Y (BUFNIx08)          0.022726 & 0.426046 f
+  add_16_26/g1332/Y (OR2CLKx06)                       0.034110 & 0.460156 f
+  add_16_26/g1086/Y (NAND2CLKx08)                     0.012706 & 0.472862 r
+  add_16_26/g1083/Y (AOI22x01)                        0.012777 & 0.485638 f
+  add_16_26/FE_OCPUNCOC164_n_22/Y (BUFNIx04)          0.033493 & 0.519131 f
+  add_16_26/FE_OCPUNCOC163_n_22/Y (BUFNICLKx08)       0.023625 & 0.542756 f
+  add_16_26/FE_RC_7_0/Y (NOR2x07)                     0.013901 & 0.556658 r
+  add_16_26/g1079/Y (NOR2x07)                         0.011080 & 0.567737 f
+  add_16_26/FE_OCPUNCOC165_n_128/Y (BUFNIx04)         0.031737 & 0.599474 f
+  add_16_26/drc1188/Y (INVx07)                        0.012888 & 0.612363 r
+  add_16_26/drc1186/Y (INVx07)                        0.003002 & 0.615364 f
+  add_16_26/g1073/Y (NOR3x02)                         0.024596 & 0.639961 r
+  add_16_26/FE_OCPUNCOC166_n_63/Y (BUFNIx04)          0.025548 & 0.665508 r
+  add_16_26/g1072/Y (AOI211x01)                       0.020145 & 0.685654 f
+  add_16_26/FE_OCPUNCOC167_n_26/Y (BUFNIx04)          0.039683 & 0.725337 f
+  add_16_26/g1331/Y (OR2CLKx06)                       0.038035 & 0.763372 f
+  add_16_26/g1066/Y (NAND2CLKx08)                     0.013560 & 0.776932 r
+  add_16_26/drc1258/Y (INVx05)                        0.003483 & 0.780415 f
+  add_16_26/drc1256/Y (INVx04)                        0.011630 & 0.792045 r
+  add_16_26/g1063/Y (AOI22x01)                        0.012623 & 0.804668 f
+  add_16_26/FE_OCPUNCOC169_n_23/Y (BUFNIx04)          0.032897 & 0.837565 f
+  add_16_26/FE_OCPUNCOC168_n_23/Y (BUFNICLKx08)       0.021564 & 0.859129 f
+  add_16_26/g1059/Y (MUX21Dx01)                       0.048191 & 0.907320 f
+  add_16_26/FE_OFCC79_add_out_12_/Y (BUFNIx03)        0.030237 & 0.937557 f
+  add_16_26/Z[12] (add_unsigned_3)                    0.000000 & 0.937557 f
+  out_reg[12]/D (DFFARSx04)                           0.000041 & 0.937598 f
+  data arrival time                                              0.937598
+
+  max_delay                                           1.500000   1.500000
+  library setup time                                  -0.066188  1.433812
+  data required time                                             1.433812
+  ------------------------------------------------------------------------------
+  data required time                                             1.433812
+  data arrival time                                              -0.937598
+  ------------------------------------------------------------------------------
+  slack (MET)                                                    0.496214
+
+
+  Startpoint: a_reg_reg[0]
+               (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: out_reg[11]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  ------------------------------------------------------------------------------
+  a_reg_reg[0]/CLK (DFFASx02)                         0.000000   0.000000 r
+  a_reg_reg[0]/Q (DFFASx02)                           0.119717 & 0.119717 r
+  add_16_26/A[0] (add_unsigned_3)                     0.000000 & 0.119717 r
+  add_16_26/FE_OCPUNCOC150_a_reg_0_/Y (BUFNIx08)      0.022892 & 0.142610 r
+  add_16_26/FE_OCPUNCOC149_a_reg_0_/Y (BUFNICLKx08)   0.020026 & 0.162636 r
+  add_16_26/g1129/Y (NAND2CLKx06)                     0.006508 & 0.169144 f
+  add_16_26/g1335/Y (OR2x04)                          0.039440 & 0.208584 f
+  add_16_26/g1103/Y (NAND2CLKx06)                     0.015621 & 0.224205 r
+  add_16_26/FE_OCPUNCOC151_n_116/Y (BUFNIx08)         0.022892 & 0.247097 r
+  add_16_26/drc1270/Y (INVx07)                        0.003187 & 0.250284 f
+  add_16_26/drc1268/Y (INVx04)                        0.010337 & 0.260621 r
+  add_16_26/g1099/Y (AOI22x01)                        0.012246 & 0.272867 f
+  add_16_26/FE_OCPUNCOC152_n_28/Y (BUFNIx04)          0.036682 & 0.309549 f
+  add_16_26/g1333/Y (OR2CLKx07)                       0.033730 & 0.343279 f
+  add_16_26/g1094/Y (NAND2CLKx08)                     0.013293 & 0.356572 r
+  add_16_26/g1091/Y (AOI22x01)                        0.012416 & 0.368988 f
+  add_16_26/FE_OCPUNCOC153_n_21/Y (BUFNIx03)          0.034332 & 0.403320 f
+  add_16_26/FE_OCPUNCOC162_n_21/Y (BUFNIx08)          0.022726 & 0.426046 f
+  add_16_26/g1332/Y (OR2CLKx06)                       0.034110 & 0.460156 f
+  add_16_26/g1086/Y (NAND2CLKx08)                     0.012706 & 0.472862 r
+  add_16_26/g1083/Y (AOI22x01)                        0.012777 & 0.485638 f
+  add_16_26/FE_OCPUNCOC164_n_22/Y (BUFNIx04)          0.033492 & 0.519131 f
+  add_16_26/FE_OCPUNCOC163_n_22/Y (BUFNICLKx08)       0.023626 & 0.542756 f
+  add_16_26/FE_RC_7_0/Y (NOR2x07)                     0.013901 & 0.556658 r
+  add_16_26/g1079/Y (NOR2x07)                         0.011080 & 0.567737 f
+  add_16_26/FE_OCPUNCOC165_n_128/Y (BUFNIx04)         0.031737 & 0.599474 f
+  add_16_26/drc1188/Y (INVx07)                        0.012888 & 0.612363 r
+  add_16_26/drc1186/Y (INVx07)                        0.003002 & 0.615364 f
+  add_16_26/g1073/Y (NOR3x02)                         0.024596 & 0.639961 r
+  add_16_26/FE_OCPUNCOC166_n_63/Y (BUFNIx04)          0.025548 & 0.665508 r
+  add_16_26/g1072/Y (AOI211x01)                       0.020145 & 0.685654 f
+  add_16_26/FE_OCPUNCOC167_n_26/Y (BUFNIx04)          0.039683 & 0.725337 f
+  add_16_26/g1331/Y (OR2CLKx06)                       0.038035 & 0.763372 f
+  add_16_26/g1066/Y (NAND2CLKx08)                     0.013560 & 0.776932 r
+  add_16_26/drc1258/Y (INVx05)                        0.003483 & 0.780416 f
+  add_16_26/g1064/Y (MUX21Dx01)                       0.053476 & 0.833892 f
+  add_16_26/FE_OFCC76_add_out_11_/Y (BUFNIx03)        0.030833 & 0.864725 f
+  add_16_26/Z[11] (add_unsigned_3)                    0.000000 & 0.864725 f
+  out_reg[11]/D (DFFARSx04)                           0.000001 & 0.864725 f
+  data arrival time                                              0.864725
+
+  max_delay                                           1.500000   1.500000
+  library setup time                                  -0.066223  1.433777
+  data required time                                             1.433777
+  ------------------------------------------------------------------------------
+  data required time                                             1.433777
+  data arrival time                                              -0.864725
+  ------------------------------------------------------------------------------
+  slack (MET)                                                    0.569052
+
+
+  Startpoint: a_reg_reg[0]
+               (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: out_reg[10]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  ------------------------------------------------------------------------------
+  a_reg_reg[0]/CLK (DFFASx02)                         0.000000   0.000000 r
+  a_reg_reg[0]/Q (DFFASx02)                           0.126649 & 0.126649 f
+  add_16_26/A[0] (add_unsigned_3)                     0.000000 & 0.126649 f
+  add_16_26/FE_OCPUNCOC150_a_reg_0_/Y (BUFNIx08)      0.025282 & 0.151932 f
+  add_16_26/FE_OCPUNCOC149_a_reg_0_/Y (BUFNICLKx08)   0.020181 & 0.172113 f
+  add_16_26/g1129/Y (NAND2CLKx06)                     0.009644 & 0.181756 r
+  add_16_26/g1335/Y (OR2x04)                          0.036149 & 0.217906 r
+  add_16_26/g1103/Y (NAND2CLKx06)                     0.005045 & 0.222950 f
+  add_16_26/FE_OCPUNCOC151_n_116/Y (BUFNIx08)         0.025803 & 0.248753 f
+  add_16_26/drc1270/Y (INVx07)                        0.009622 & 0.258375 r
+  add_16_26/drc1268/Y (INVx04)                        0.004584 & 0.262959 f
+  add_16_26/g1099/Y (AOI22x01)                        0.018220 & 0.281179 r
+  add_16_26/FE_OCPUNCOC152_n_28/Y (BUFNIx04)          0.034323 & 0.315502 r
+  add_16_26/g1333/Y (OR2CLKx07)                       0.033429 & 0.348932 r
+  add_16_26/g1094/Y (NAND2CLKx08)                     0.006460 & 0.355391 f
+  add_16_26/g1091/Y (AOI22x01)                        0.020386 & 0.375777 r
+  add_16_26/FE_OCPUNCOC153_n_21/Y (BUFNIx03)          0.031719 & 0.407496 r
+  add_16_26/FE_OCPUNCOC162_n_21/Y (BUFNIx08)          0.021324 & 0.428820 r
+  add_16_26/g1332/Y (OR2CLKx06)                       0.034661 & 0.463481 r
+  add_16_26/g1086/Y (NAND2CLKx08)                     0.006595 & 0.470075 f
+  add_16_26/g1083/Y (AOI22x01)                        0.020678 & 0.490753 r
+  add_16_26/FE_OCPUNCOC164_n_22/Y (BUFNIx04)          0.029485 & 0.520238 r
+  add_16_26/FE_OCPUNCOC163_n_22/Y (BUFNICLKx08)       0.022056 & 0.542294 r
+  add_16_26/FE_RC_7_0/Y (NOR2x07)                     0.010482 & 0.552777 f
+  add_16_26/g1079/Y (NOR2x07)                         0.015302 & 0.568079 r
+  add_16_26/FE_OCPUNCOC165_n_128/Y (BUFNIx04)         0.033112 & 0.601191 r
+  add_16_26/drc1188/Y (INVx07)                        0.002956 & 0.604147 f
+  add_16_26/drc1186/Y (INVx07)                        0.011866 & 0.616013 r
+  add_16_26/g1073/Y (NOR3x02)                         0.016045 & 0.632059 f
+  add_16_26/FE_OCPUNCOC166_n_63/Y (BUFNIx04)          0.028674 & 0.660732 f
+  add_16_26/g1072/Y (AOI211x01)                       0.025239 & 0.685971 r
+  add_16_26/FE_OCPUNCOC167_n_26/Y (BUFNIx04)          0.035591 & 0.721562 r
+  add_16_26/drc1168/Y (INVx04)                        0.000998 & 0.722560 f
+  add_16_26/FE_OFCC67_n_72/Y (BUFNIx03)               0.029028 & 0.751588 f
+  add_16_26/g1067/Y (MUX21Dx01)                       0.034444 & 0.786032 f
+  add_16_26/FE_OFCC74_add_out_10_/Y (BUFNIx03)        0.030360 & 0.816392 f
+  add_16_26/Z[10] (add_unsigned_3)                    0.000000 & 0.816392 f
+  out_reg[10]/D (DFFARSx04)                           0.000030 & 0.816422 f
+  data arrival time                                              0.816422
+
+  max_delay                                           1.500000   1.500000
+  library setup time                                  -0.066215  1.433785
+  data required time                                             1.433785
+  ------------------------------------------------------------------------------
+  data required time                                             1.433785
+  data arrival time                                              -0.816422
+  ------------------------------------------------------------------------------
+  slack (MET)                                                    0.617363
+
+
+  Startpoint: a_reg_reg[0]
+               (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: out_reg[9] (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  ------------------------------------------------------------------------------
+  a_reg_reg[0]/CLK (DFFASx02)                         0.000000   0.000000 r
+  a_reg_reg[0]/Q (DFFASx02)                           0.126649 & 0.126649 f
+  add_16_26/A[0] (add_unsigned_3)                     0.000000 & 0.126649 f
+  add_16_26/FE_OCPUNCOC150_a_reg_0_/Y (BUFNIx08)      0.025282 & 0.151932 f
+  add_16_26/FE_OCPUNCOC149_a_reg_0_/Y (BUFNICLKx08)   0.020181 & 0.172113 f
+  add_16_26/g1129/Y (NAND2CLKx06)                     0.009644 & 0.181756 r
+  add_16_26/g1335/Y (OR2x04)                          0.036149 & 0.217906 r
+  add_16_26/g1103/Y (NAND2CLKx06)                     0.005045 & 0.222950 f
+  add_16_26/FE_OCPUNCOC151_n_116/Y (BUFNIx08)         0.025803 & 0.248753 f
+  add_16_26/drc1270/Y (INVx07)                        0.009622 & 0.258375 r
+  add_16_26/drc1268/Y (INVx04)                        0.004584 & 0.262959 f
+  add_16_26/g1099/Y (AOI22x01)                        0.018220 & 0.281179 r
+  add_16_26/FE_OCPUNCOC152_n_28/Y (BUFNIx04)          0.034323 & 0.315502 r
+  add_16_26/g1333/Y (OR2CLKx07)                       0.033429 & 0.348932 r
+  add_16_26/g1094/Y (NAND2CLKx08)                     0.006460 & 0.355391 f
+  add_16_26/g1091/Y (AOI22x01)                        0.020386 & 0.375777 r
+  add_16_26/FE_OCPUNCOC153_n_21/Y (BUFNIx03)          0.031719 & 0.407496 r
+  add_16_26/FE_OCPUNCOC162_n_21/Y (BUFNIx08)          0.021324 & 0.428820 r
+  add_16_26/g1332/Y (OR2CLKx06)                       0.034661 & 0.463481 r
+  add_16_26/g1086/Y (NAND2CLKx08)                     0.006595 & 0.470075 f
+  add_16_26/g1083/Y (AOI22x01)                        0.020678 & 0.490753 r
+  add_16_26/FE_OCPUNCOC164_n_22/Y (BUFNIx04)          0.029485 & 0.520238 r
+  add_16_26/FE_OCPUNCOC163_n_22/Y (BUFNICLKx08)       0.022056 & 0.542294 r
+  add_16_26/FE_RC_7_0/Y (NOR2x07)                     0.010482 & 0.552777 f
+  add_16_26/g1079/Y (NOR2x07)                         0.015302 & 0.568079 r
+  add_16_26/g1077/Y (NOR2x07)                         0.007705 & 0.575783 f
+  add_16_26/FE_OFC82_n_129/Y (BUFNIx08)               0.022540 & 0.598324 f
+  add_16_26/g1075/Y (NOR2x07)                         0.010068 & 0.608392 r
+  add_16_26/g1074/Y (INVCLKx02)                       0.004931 & 0.613323 f
+  add_16_26/g1070/Y (MUX21Dx01)                       0.055897 & 0.669220 f
+  add_16_26/FE_OFCC69_add_out_9_/Y (BUFNIx03)         0.033127 & 0.702348 f
+  add_16_26/Z[9] (add_unsigned_3)                     0.000000 & 0.702348 f
+  out_reg[9]/D (DFFARSx04)                            0.000034 & 0.702382 f
+  data arrival time                                              0.702382
+
+  max_delay                                           1.500000   1.500000
+  library setup time                                  -0.066851  1.433149
+  data required time                                             1.433149
+  ------------------------------------------------------------------------------
+  data required time                                             1.433149
+  data arrival time                                              -0.702382
+  ------------------------------------------------------------------------------
+  slack (MET)                                                    0.730768
+
+
+  Startpoint: a_reg_reg[0]
+               (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: out_reg[8] (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  ------------------------------------------------------------------------------
+  a_reg_reg[0]/CLK (DFFASx02)                         0.000000   0.000000 r
+  a_reg_reg[0]/Q (DFFASx02)                           0.126649 & 0.126649 f
+  add_16_26/A[0] (add_unsigned_3)                     0.000000 & 0.126649 f
+  add_16_26/FE_OCPUNCOC150_a_reg_0_/Y (BUFNIx08)      0.025282 & 0.151932 f
+  add_16_26/FE_OCPUNCOC149_a_reg_0_/Y (BUFNICLKx08)   0.020181 & 0.172113 f
+  add_16_26/g1129/Y (NAND2CLKx06)                     0.009644 & 0.181756 r
+  add_16_26/g1335/Y (OR2x04)                          0.036149 & 0.217906 r
+  add_16_26/g1103/Y (NAND2CLKx06)                     0.005045 & 0.222950 f
+  add_16_26/FE_OCPUNCOC151_n_116/Y (BUFNIx08)         0.025803 & 0.248753 f
+  add_16_26/drc1270/Y (INVx07)                        0.009622 & 0.258375 r
+  add_16_26/drc1268/Y (INVx04)                        0.004584 & 0.262959 f
+  add_16_26/g1099/Y (AOI22x01)                        0.018220 & 0.281179 r
+  add_16_26/FE_OCPUNCOC152_n_28/Y (BUFNIx04)          0.034323 & 0.315502 r
+  add_16_26/g1333/Y (OR2CLKx07)                       0.033429 & 0.348932 r
+  add_16_26/g1094/Y (NAND2CLKx08)                     0.006460 & 0.355391 f
+  add_16_26/g1091/Y (AOI22x01)                        0.020386 & 0.375777 r
+  add_16_26/FE_OCPUNCOC153_n_21/Y (BUFNIx03)          0.031719 & 0.407496 r
+  add_16_26/FE_OCPUNCOC162_n_21/Y (BUFNIx08)          0.021324 & 0.428820 r
+  add_16_26/g1332/Y (OR2CLKx06)                       0.034661 & 0.463481 r
+  add_16_26/g1086/Y (NAND2CLKx08)                     0.006595 & 0.470075 f
+  add_16_26/g1083/Y (AOI22x01)                        0.020678 & 0.490753 r
+  add_16_26/FE_OCPUNCOC164_n_22/Y (BUFNIx04)          0.029485 & 0.520238 r
+  add_16_26/FE_OCPUNCOC163_n_22/Y (BUFNICLKx08)       0.022056 & 0.542294 r
+  add_16_26/FE_RC_7_0/Y (NOR2x07)                     0.010482 & 0.552776 f
+  add_16_26/g1079/Y (NOR2x07)                         0.015302 & 0.568079 r
+  add_16_26/FE_OCPUNCOC165_n_128/Y (BUFNIx04)         0.033112 & 0.601191 r
+  add_16_26/drc1188/Y (INVx07)                        0.002956 & 0.604147 f
+  add_16_26/g1076/Y (MUX21Dx01)                       0.057775 & 0.661922 f
+  add_16_26/FE_OFCC68_add_out_8_/Y (BUFNIx03)         0.033107 & 0.695029 f
+  add_16_26/Z[8] (add_unsigned_3)                     0.000000 & 0.695029 f
+  out_reg[8]/D (DFFARSx04)                            0.000041 & 0.695070 f
+  data arrival time                                              0.695070
+
+  max_delay                                           1.500000   1.500000
+  library setup time                                  -0.066872  1.433128
+  data required time                                             1.433128
+  ------------------------------------------------------------------------------
+  data required time                                             1.433128
+  data arrival time                                              -0.695070
+  ------------------------------------------------------------------------------
+  slack (MET)                                                    0.738058
+
+
+  Startpoint: a_reg_reg[0]
+               (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: out_reg[7] (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  ------------------------------------------------------------------------------
+  a_reg_reg[0]/CLK (DFFASx02)                         0.000000   0.000000 r
+  a_reg_reg[0]/Q (DFFASx02)                           0.126649 & 0.126649 f
+  add_16_26/A[0] (add_unsigned_3)                     0.000000 & 0.126649 f
+  add_16_26/FE_OCPUNCOC150_a_reg_0_/Y (BUFNIx08)      0.025282 & 0.151932 f
+  add_16_26/FE_OCPUNCOC149_a_reg_0_/Y (BUFNICLKx08)   0.020181 & 0.172113 f
+  add_16_26/g1129/Y (NAND2CLKx06)                     0.009644 & 0.181757 r
+  add_16_26/g1335/Y (OR2x04)                          0.036149 & 0.217906 r
+  add_16_26/g1103/Y (NAND2CLKx06)                     0.005045 & 0.222950 f
+  add_16_26/FE_OCPUNCOC151_n_116/Y (BUFNIx08)         0.025803 & 0.248753 f
+  add_16_26/drc1270/Y (INVx07)                        0.009622 & 0.258375 r
+  add_16_26/drc1268/Y (INVx04)                        0.004584 & 0.262959 f
+  add_16_26/g1099/Y (AOI22x01)                        0.018220 & 0.281179 r
+  add_16_26/FE_OCPUNCOC152_n_28/Y (BUFNIx04)          0.034323 & 0.315502 r
+  add_16_26/g1333/Y (OR2CLKx07)                       0.033429 & 0.348932 r
+  add_16_26/g1094/Y (NAND2CLKx08)                     0.006460 & 0.355391 f
+  add_16_26/g1091/Y (AOI22x01)                        0.020386 & 0.375777 r
+  add_16_26/FE_OCPUNCOC153_n_21/Y (BUFNIx03)          0.031719 & 0.407496 r
+  add_16_26/FE_OCPUNCOC162_n_21/Y (BUFNIx08)          0.021324 & 0.428820 r
+  add_16_26/g1332/Y (OR2CLKx06)                       0.034661 & 0.463481 r
+  add_16_26/g1086/Y (NAND2CLKx08)                     0.006595 & 0.470075 f
+  add_16_26/g1083/Y (AOI22x01)                        0.020678 & 0.490753 r
+  add_16_26/FE_OCPUNCOC164_n_22/Y (BUFNIx04)          0.029485 & 0.520238 r
+  add_16_26/FE_OCPUNCOC163_n_22/Y (BUFNICLKx08)       0.022056 & 0.542294 r
+  add_16_26/drc1180/Y (INVx02)                        0.004590 & 0.546884 f
+  add_16_26/g1080/Y (MUX21Dx01)                       0.057577 & 0.604461 f
+  add_16_26/Z[7] (add_unsigned_3)                     0.000000 & 0.604461 f
+  out_reg[7]/D (DFFARSx04)                            0.000036 & 0.604497 f
+  data arrival time                                              0.604497
+
+  max_delay                                           1.500000   1.500000
+  library setup time                                  -0.069621  1.430379
+  data required time                                             1.430379
+  ------------------------------------------------------------------------------
+  data required time                                             1.430379
+  data arrival time                                              -0.604497
+  ------------------------------------------------------------------------------
+  slack (MET)                                                    0.825882
+
+
+  Startpoint: a_reg_reg[0]
+               (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: out_reg[6] (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  ------------------------------------------------------------------------------
+  a_reg_reg[0]/CLK (DFFASx02)                         0.000000   0.000000 r
+  a_reg_reg[0]/Q (DFFASx02)                           0.126649 & 0.126649 f
+  add_16_26/A[0] (add_unsigned_3)                     0.000000 & 0.126649 f
+  add_16_26/FE_OCPUNCOC150_a_reg_0_/Y (BUFNIx08)      0.025282 & 0.151932 f
+  add_16_26/FE_OCPUNCOC149_a_reg_0_/Y (BUFNICLKx08)   0.020181 & 0.172113 f
+  add_16_26/g1129/Y (NAND2CLKx06)                     0.009644 & 0.181756 r
+  add_16_26/g1335/Y (OR2x04)                          0.036149 & 0.217906 r
+  add_16_26/g1103/Y (NAND2CLKx06)                     0.005045 & 0.222950 f
+  add_16_26/FE_OCPUNCOC151_n_116/Y (BUFNIx08)         0.025803 & 0.248753 f
+  add_16_26/drc1270/Y (INVx07)                        0.009622 & 0.258375 r
+  add_16_26/drc1268/Y (INVx04)                        0.004584 & 0.262959 f
+  add_16_26/g1099/Y (AOI22x01)                        0.018220 & 0.281179 r
+  add_16_26/FE_OCPUNCOC152_n_28/Y (BUFNIx04)          0.034323 & 0.315502 r
+  add_16_26/g1333/Y (OR2CLKx07)                       0.033429 & 0.348932 r
+  add_16_26/g1094/Y (NAND2CLKx08)                     0.006460 & 0.355391 f
+  add_16_26/g1091/Y (AOI22x01)                        0.020386 & 0.375777 r
+  add_16_26/FE_OCPUNCOC153_n_21/Y (BUFNIx03)          0.031719 & 0.407496 r
+  add_16_26/FE_OCPUNCOC162_n_21/Y (BUFNIx08)          0.021324 & 0.428820 r
+  add_16_26/g1332/Y (OR2CLKx06)                       0.034661 & 0.463481 r
+  add_16_26/g1086/Y (NAND2CLKx08)                     0.006595 & 0.470075 f
+  add_16_26/g1084/Y (MUX21Dx01)                       0.054431 & 0.524507 f
+  add_16_26/FE_OFCC64_add_out_6_/Y (BUFNIx04)         0.028647 & 0.553154 f
+  add_16_26/Z[6] (add_unsigned_3)                     0.000000 & 0.553154 f
+  out_reg[6]/D (DFFARSx04)                            0.000043 & 0.553196 f
+  data arrival time                                              0.553196
+
+  max_delay                                           1.500000   1.500000
+  library setup time                                  -0.066124  1.433876
+  data required time                                             1.433876
+  ------------------------------------------------------------------------------
+  data required time                                             1.433876
+  data arrival time                                              -0.553196
+  ------------------------------------------------------------------------------
+  slack (MET)                                                    0.880680
+
+
+1

@@ -1,0 +1,295 @@
+****************************************
+Report : timing
+	-path_type full
+	-delay_type min
+	-max_paths 10
+Design : adder
+Version: D-2009.12-SP1
+Date   : Thu Feb 12 00:45:20 2015
+****************************************
+
+
+  Startpoint: a[7] (input port clocked by clk)
+  Endpoint: a_reg_reg[7]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  input external delay                 0.100000   0.100000 f
+  a[7] (in)                            0.000000 & 0.100000 f
+  FE_PHC179_a_7_/Y (BUFNIx08)          0.016454 & 0.116454 f
+  FE_PHC204_a_7_/Y (BUFNIx08)          0.018625 & 0.135079 f
+  FE_PHC254_a_7_/Y (BUFNIx04)          0.023270 & 0.158349 f
+  FE_PHC232_a_7_/Y (BUFNIx08)          0.022499 & 0.180848 f
+  FE_PHC132_a_7_/Y (BUFNIx03)          0.026762 & 0.207610 f
+  a_reg_reg[7]/D (DFFASx02)            0.000043 & 0.207653 f
+  data arrival time                               0.207653
+
+  min_delay                            0.000000   0.000000
+  library hold time                    0.029999   0.029999
+  data required time                              0.029999
+  ---------------------------------------------------------------
+  data required time                              0.029999
+  data arrival time                               -0.207653
+  ---------------------------------------------------------------
+  slack (MET)                                     0.177654
+
+
+  Startpoint: b[14] (input port clocked by clk)
+  Endpoint: b_reg_reg[14]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  input external delay                 0.100000   0.100000 f
+  b[14] (in)                           0.000000 & 0.100000 f
+  FE_PHC195_b_14_/Y (BUFNIx04)         0.016227 & 0.116227 f
+  FE_PHC222_b_14_/Y (BUFNIx04)         0.022942 & 0.139169 f
+  FE_PHC141_b_14_/Y (BUFNIx04)         0.021252 & 0.160421 f
+  FE_PHC167_b_14_/Y (BUFNIx04)         0.024667 & 0.185088 f
+  FE_PHC119_b_14_/Y (BUFNIx03)         0.025002 & 0.210090 f
+  b_reg_reg[14]/D (DFFASx02)           0.000006 & 0.210096 f
+  data arrival time                               0.210096
+
+  min_delay                            0.000000   0.000000
+  library hold time                    0.030106   0.030106
+  data required time                              0.030106
+  ---------------------------------------------------------------
+  data required time                              0.030106
+  data arrival time                               -0.210096
+  ---------------------------------------------------------------
+  slack (MET)                                     0.179990
+
+
+  Startpoint: b[5] (input port clocked by clk)
+  Endpoint: b_reg_reg[5]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  input external delay                 0.100000   0.100000 f
+  b[5] (in)                            0.000000 & 0.100000 f
+  FE_PHC144_b_5_/Y (BUFNIx08)          0.016877 & 0.116877 f
+  FE_PHC225_b_5_/Y (BUFNIx04)          0.022074 & 0.138951 f
+  FE_PHC191_b_5_/Y (BUFNIx04)          0.023975 & 0.162926 f
+  FE_PHC161_b_5_/Y (BUFNIx08)          0.023334 & 0.186259 f
+  FE_PHC130_b_5_/Y (BUFNIx03)          0.025150 & 0.211409 f
+  b_reg_reg[5]/D (DFFASx02)            0.000004 & 0.211413 f
+  data arrival time                               0.211413
+
+  min_delay                            0.000000   0.000000
+  library hold time                    0.030129   0.030129
+  data required time                              0.030129
+  ---------------------------------------------------------------
+  data required time                              0.030129
+  data arrival time                               -0.211413
+  ---------------------------------------------------------------
+  slack (MET)                                     0.181285
+
+
+  Startpoint: a[2] (input port clocked by clk)
+  Endpoint: a_reg_reg[2]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  input external delay                 0.100000   0.100000 f
+  a[2] (in)                            0.000000 & 0.100000 f
+  FE_PHC178_a_2_/Y (BUFNIx08)          0.015339 & 0.115339 f
+  FE_PHC258_a_2_/Y (BUFNIx04)          0.020601 & 0.135940 f
+  FE_PHC231_a_2_/Y (BUFNIx04)          0.023946 & 0.159886 f
+  FE_PHC205_a_2_/Y (BUFNIx08)          0.024033 & 0.183919 f
+  FE_PHC115_a_2_/Y (BUFNIx03)          0.027356 & 0.211275 f
+  a_reg_reg[2]/D (DFFASx02)            0.000031 & 0.211306 f
+  data arrival time                               0.211306
+
+  min_delay                            0.000000   0.000000
+  library hold time                    0.029993   0.029993
+  data required time                              0.029993
+  ---------------------------------------------------------------
+  data required time                              0.029993
+  data arrival time                               -0.211306
+  ---------------------------------------------------------------
+  slack (MET)                                     0.181313
+
+
+  Startpoint: b[9] (input port clocked by clk)
+  Endpoint: b_reg_reg[9]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  input external delay                 0.100000   0.100000 f
+  b[9] (in)                            0.000000 & 0.100000 f
+  FE_PHC134_b_9_/Y (BUFNIx03)          0.022643 & 0.122643 f
+  FE_PHC171_b_9_/Y (BUFNIx04)          0.023937 & 0.146580 f
+  FE_PHC226_b_9_/Y (BUFNIx04)          0.021032 & 0.167613 f
+  FE_PHC146_b_9_/Y (BUFNIx04)          0.022723 & 0.190336 f
+  FE_PHC197_b_9_/Y (BUFNIx04)          0.022559 & 0.212895 f
+  b_reg_reg[9]/D (DFFASx02)            0.000010 & 0.212905 f
+  data arrival time                               0.212905
+
+  min_delay                            0.000000   0.000000
+  library hold time                    0.030152   0.030152
+  data required time                              0.030152
+  ---------------------------------------------------------------
+  data required time                              0.030152
+  data arrival time                               -0.212905
+  ---------------------------------------------------------------
+  slack (MET)                                     0.182753
+
+
+  Startpoint: a[13] (input port clocked by clk)
+  Endpoint: a_reg_reg[13]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  input external delay                 0.100000   0.100000 f
+  a[13] (in)                           0.000000 & 0.100000 f
+  FE_PHC145_a_13_/Y (BUFNIx08)         0.015519 & 0.115519 f
+  FE_PHC158_a_13_/Y (BUFNIx08)         0.018316 & 0.133835 f
+  FE_PHC210_a_13_/Y (BUFNIx08)         0.018337 & 0.152172 f
+  FE_PHC239_a_13_/Y (BUFNIx08)         0.018901 & 0.171073 f
+  FE_PHC183_a_13_/Y (BUFNIx08)         0.019648 & 0.190721 f
+  FE_PHC122_a_13_/Y (BUFNIx03)         0.024069 & 0.214789 f
+  a_reg_reg[13]/D (DFFASx02)           0.000012 & 0.214802 f
+  data arrival time                               0.214802
+
+  min_delay                            0.000000   0.000000
+  library hold time                    0.030091   0.030091
+  data required time                              0.030091
+  ---------------------------------------------------------------
+  data required time                              0.030091
+  data arrival time                               -0.214802
+  ---------------------------------------------------------------
+  slack (MET)                                     0.184710
+
+
+  Startpoint: a[9] (input port clocked by clk)
+  Endpoint: a_reg_reg[9]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  input external delay                 0.100000   0.100000 f
+  a[9] (in)                            0.000000 & 0.100000 f
+  FE_PHC164_a_9_/Y (BUFNIx04)          0.019205 & 0.119205 f
+  FE_PHC223_a_9_/Y (BUFNIx04)          0.022099 & 0.141304 f
+  FE_PHC192_a_9_/Y (BUFNIx04)          0.026053 & 0.167357 f
+  FE_PHC139_a_9_/Y (BUFNIx04)          0.024606 & 0.191963 f
+  FE_PHC127_a_9_/Y (BUFNIx03)          0.024392 & 0.216355 f
+  a_reg_reg[9]/D (DFFASx02)            0.000011 & 0.216366 f
+  data arrival time                               0.216366
+
+  min_delay                            0.000000   0.000000
+  library hold time                    0.030106   0.030106
+  data required time                              0.030106
+  ---------------------------------------------------------------
+  data required time                              0.030106
+  data arrival time                               -0.216366
+  ---------------------------------------------------------------
+  slack (MET)                                     0.186260
+
+
+  Startpoint: b[10] (input port clocked by clk)
+  Endpoint: b_reg_reg[10]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  input external delay                 0.100000   0.100000 f
+  b[10] (in)                           0.000000 & 0.100000 f
+  FE_PHC259_b_10_/Y (BUFNIx08)         0.018775 & 0.118775 f
+  FE_PHC148_b_10_/Y (BUFNIx04)         0.022208 & 0.140983 f
+  FE_PHC169_b_10_/Y (BUFNIx04)         0.021402 & 0.162385 f
+  FE_PHC198_b_10_/Y (BUFNIx04)         0.027659 & 0.190044 f
+  FE_PHC126_b_10_/Y (BUFNIx03)         0.026932 & 0.216976 f
+  b_reg_reg[10]/D (DFFASx02)           0.000016 & 0.216992 f
+  data arrival time                               0.216992
+
+  min_delay                            0.000000   0.000000
+  library hold time                    0.030027   0.030027
+  data required time                              0.030027
+  ---------------------------------------------------------------
+  data required time                              0.030027
+  data arrival time                               -0.216992
+  ---------------------------------------------------------------
+  slack (MET)                                     0.186965
+
+
+  Startpoint: a[15] (input port clocked by clk)
+  Endpoint: a_reg_reg[15]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  input external delay                 0.100000   0.100000 f
+  a[15] (in)                           0.000000 & 0.100000 f
+  FE_PHC177_a_15_/Y (BUFNIx08)         0.015212 & 0.115212 f
+  FE_PHC200_a_15_/Y (BUFNIx08)         0.018639 & 0.133851 f
+  FE_PHC252_a_15_/Y (BUFNIx08)         0.018133 & 0.151984 f
+  FE_PHC265_a_15_/Y (BUFNIx08)         0.018709 & 0.170693 f
+  FE_PHC227_a_15_/Y (BUFNIx08)         0.019943 & 0.190636 f
+  FE_PHC124_a_15_/Y (BUFNIx03)         0.026348 & 0.216984 f
+  a_reg_reg[15]/D (DFFASx02)           0.000031 & 0.217015 f
+  data arrival time                               0.217015
+
+  min_delay                            0.000000   0.000000
+  library hold time                    0.029964   0.029964
+  data required time                              0.029964
+  ---------------------------------------------------------------
+  data required time                              0.029964
+  data arrival time                               -0.217015
+  ---------------------------------------------------------------
+  slack (MET)                                     0.187051
+
+
+  Startpoint: b[15] (input port clocked by clk)
+  Endpoint: b_reg_reg[15]
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  input external delay                 0.100000   0.100000 f
+  b[15] (in)                           0.000000 & 0.100000 f
+  FE_PHC138_b_15_/Y (BUFNIx04)         0.021759 & 0.121759 f
+  FE_PHC165_b_15_/Y (BUFNIx09)         0.020239 & 0.141998 f
+  FE_PHC199_b_15_/Y (BUFNIx08)         0.018423 & 0.160421 f
+  FE_PHC224_b_15_/Y (BUFNIx08)         0.017747 & 0.178168 f
+  FE_PHC248_b_15_/Y (BUFNIx08)         0.018459 & 0.196627 f
+  FE_PHC120_b_15_/Y (BUFNIx03)         0.023292 & 0.219919 f
+  b_reg_reg[15]/D (DFFASx02)           0.000011 & 0.219930 f
+  data arrival time                               0.219930
+
+  min_delay                            0.000000   0.000000
+  library hold time                    0.030111   0.030111
+  data required time                              0.030111
+  ---------------------------------------------------------------
+  data required time                              0.030111
+  data arrival time                               -0.219930
+  ---------------------------------------------------------------
+  slack (MET)                                     0.189819
+
+
+1
