@@ -1,0 +1,165 @@
+/**************************************************************/
+/* DPDA_clamp.vp                                                */
+/*    John Brunhaver jbrunhaver@gmail.com                     */
+/**************************************************************/
+
+
+//;   #print STDOUT " DPDA_clamp.vp  \n"  ;
+
+//; 
+//; # Import Libs
+//; use POSIX ();
+//;  include( "DPDA_header.vph" );
+//; 
+//;  #print STDOUT " Requesting config from global...  \n"  ;
+//;  my %config = getConfig( def_lhPorts=>1 ,  def_rhPorts=>3 , self=>$self );
+//;  #print STDOUT " Config returned from global ... \n" ;
+//; 
+//;  my $FPGA_FLOW =  $config{'FPGA_FLOW'};
+//;
+//;  # Port PARAMETERS:
+//;  my %lh0 = %{$config{'lhs'}[0]} ;
+//;  my %rh0 = %{$config{'rhs'}[0]} ;
+//;  my %rh1 = %{$config{'rhs'}[1]} ;
+//;  my %rh2 = %{$config{'rhs'}[2]} ;
+//; 
+//;  # Some pre-calculations for Module instantiation
+//;  my $im_Type    = $rh0{'Type'} ;
+//; 
+//;  #print STDOUT " Type $im_Type \n " ;
+//; 
+//;  my $im_Width    =-1;
+//;  my $im_signed   =-1;
+//;  my $im_Mantissa =-1;
+//;  my $im_Exponent =-1;
+//;  my $im_Frac     =-1;
+//;  my $im_Int      =-1;
+//; 
+//;  my $ieee_compliance=1;
+//;  
+//;  if($im_Type eq "float") {
+//;      $self->error("Float is not implement for clamp");
+//;  }else{
+//;      $im_Frac    = max( [ $rh0{'Fraction'} , $rh1{'Fraction'} , $rh2{'Fraction'} , $lh0{'Fraction'}] ) ; #print STDOUT " im_Frac $im_Frac \n " ; 
+//;      $im_Int     = max( [ $rh0{'Integer'}  , $rh1{'Integer'}  , $rh2{'Integer'}  , $lh0{'Integer'} ] ); #print STDOUT " im_Int $im_Int \n " ; 
+//;      $im_Width   = $im_Int + $im_Frac ;                                                        #print STDOUT " im_Width $im_Width \n " ; 
+//;      $im_signed  = $rh1{Signed} ;
+//;  }
+
+
+
+
+// DPDA_clamp  ==>  a  = ( c + d ) //
+module `mname()`
+  (
+
+   ` standardPorts( \%config ) ` 
+
+   );
+`setFlattenAndRetime($self)`
+`checkXZpropogation(\%config,$self)`
+
+//;
+//; if( $lh0{dCnt} > 0 ){
+//;
+
+   ` parallelRecursiveInstantiate( \%config , "DPDA_clamp" ) `
+
+//;
+//; } elsif(  $lh0{dCnt} == 0 ) { # Begin $dim == 0 code    
+//;
+
+//; #########################################
+//; # Signals
+//; #########################################
+
+     logic [`$im_Width-1`:0] im1 ;
+   
+
+//; ###################################
+//; # Input Retime Flops
+//; ###################################
+    ` retimeInputFlops( \%config ) `
+     
+//; ##########################################
+//; # Match the radix of the inputs
+//; ##########################################
+
+//;  if($im_Type eq "float") {
+//;      $self->error("Float is not implement for clamp");
+//; }else{
+//;   print truncateInputs( \%config , 'in1' , $im_Int , $im_Frac , 'in2' , $im_Int , $im_Frac  , 'in3' , $im_Int , $im_Frac ) ;
+//; }   
+
+//; ##########################################
+//; # Handle Some Configuration
+//; ##########################################
+//; # pass ;
+    
+//; ###################################
+//; # Instantiate Clamp
+//; ###################################
+
+//; if($im_Type eq "float") {
+
+//; $self->error( "Float not implemented for clamp" );
+	
+//; }elsif($im_Type eq "fix"){
+   logic a,b,c ;
+   assign a = signed'(in1) < signed'(in2) ;
+   assign b = signed'(in1) > signed'(in3) ; 
+   assign c = signed'(in2) > signed'(in3) ;
+
+   always_comb begin 
+      unique casex ( {a,b,c} )
+	3'b000: im1 = in1 ; //PASS
+ 	3'b100: im1 = in2 ; //Clipped LB
+	3'b010: im1 = in3 ; //Clipped UB
+	3'bxx1: im1 = `$im_Width`'d0 ; //Will be synthesized away for constant clamps	
+      endcase
+   end
+//; }elsif($im_Type eq "ufix"){
+   logic a,b,c ;
+   assign a = unsigned'(in1) < unsigned'(in2) ;
+   assign b = unsigned'(in1) > unsigned'(in3) ; 
+   assign c = unsigned'(in2) > unsigned'(in3) ;
+
+   always_comb begin 
+      unique casex ( {a,b,c} )
+	3'b000: im1 = in1 ; //PASS
+ 	3'b100: im1 = in2 ; //Clipped LB
+	3'b010: im1 = in3 ; //Clipped UB
+	3'bxx1: im1 = `$im_Width`'d0 ; //Will be synthesized away for constant clamps	
+      endcase
+   end
+   
+//; } else {
+//; $self->error( "unsuported type in clamp" );   
+//; }   
+//;
+//; ##################################
+//; # Instantiate Truncate to Convert
+//; #  intermediate resutlts into lhs
+//; ##################################
+//;
+
+//;  if($im_Type eq "float") {
+    ` truncateOutputs( \%config , 'im1' , $im_Exponent , $im_Mantissa  ) `
+//; }else{
+    ` truncateOutputs( \%config , 'im1' , $im_Int , $im_Frac  ) ` 
+//; }   
+
+//; #####################################
+//; # Output Retime Flops
+//; ######################################
+      ` retimeOutputFlops( \%config ) `
+
+//;  
+//; } else { # End $dim == 0 code
+//;       $self->error("Unexpected Condition" )
+//; } 
+//;
+   
+endmodule : `mname` 
+
+//; print STDOUT " finish " . $self->mname() . "\n" ;

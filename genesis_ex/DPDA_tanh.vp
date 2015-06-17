@@ -1,0 +1,185 @@
+/**************************************************************/
+/* DPDA_tanh.vp                                                */
+/*    John Brunhaver jbrunhaver@gmail.com                     */
+/**************************************************************/
+
+
+//;   print STDOUT " DPDA_tanh.vp  \n"  ;
+
+//; 
+//; # Import Libs
+//; use POSIX ();
+//;  include( "DPDA_header.vph" );
+//; 
+//;  print STDOUT "DPDA_tanh: Requesting config from global...  \n"  ;
+//;  my %config ;
+//;  if( getFPGA($self) ){
+//;       %config = getConfig( 
+//;                             def_lhPorts=>1 ,  def_rhPorts=>1 , 
+//;                             def_funcPipeDepth=>3 , def_funcPipeDepthMin=>1 , def_funcPipeDepthMax=>4 ,
+//;                             self=>$self );
+//;  } else { #NO FPGA
+//;       %config = getConfig( def_lhPorts=>1 ,  def_rhPorts=>1 , self=>$self );
+//;  }
+//;
+//;  print STDOUT "DPDA_tanh: Config returned from global ... \n" ;
+//; 
+//;  my $FPGA_FLOW =  $config{'FPGA_FLOW'};
+//;
+//;  # Port PARAMETERS:
+//;  my %lh0 = %{$config{'lhs'}[0]} ;
+//;  my %rh0 = %{$config{'rhs'}[0]} ;
+//; 
+//;  # Some pre-calculations for Module instantiation
+//;  my $im_Type    = $rh0{'Type'} ; #print STDOUT " Type $im_Type \n " ;
+//;
+//;  my $im_Width    =-1;
+//;  my $im_signed   =-1;
+//;  my $im_Mantissa =-1;
+//;  my $im_Exponent =-1;
+//;  my $im_Frac     =-1;
+//;  my $im_Int      =-1;
+//;
+//;  my $ieee_compliance=1;
+
+//;  if($im_Type eq "float") {
+//;      $self->error( "Floating point tanh, not currently implemented" ) ;
+//;  }else{
+//;      $im_Width   = $lh0{'BitWidth'}  ; print STDOUT " im_Width $im_Width \n " ; 
+//;      $im_Frac    = $lh0{'Fraction'}  ; print STDOUT " im_Frac $im_Frac \n " ; 
+//;      $im_Int     = $im_Width - $im_Frac ;                print STDOUT " im_Int $im_Int \n " ; 
+//;      $im_signed  = $lh0{Signed} ;
+//;      $im_Frac == 8 or $self->error( "fraction must be 8" );
+//;      $im_signed    or $self->error( "rh0 must be singed" );
+//;  }
+
+
+// DPDA_tanh  ==> ( a ) = - b  //
+module `mname()`
+  (
+
+   ` standardPorts( \%config ) ` 
+
+   );
+`setFlattenAndRetime($self)`
+`checkXZpropogation(\%config,$self)`
+
+//;
+//; if( $lh0{dCnt} > 0 ){
+//;
+
+   ` parallelRecursiveInstantiate( \%config , "DPDA_tanh" ) `
+
+//;
+//; } elsif(  $lh0{dCnt} == 0 ) { # Begin $dim == 0 code    
+//;
+
+
+//; ##########################################
+//; # Signals
+//; ##########################################
+
+   logic [`$im_Width-1`:0] 	 im1 ;
+
+
+//; ##########################################
+//; # Handle Some Configuration
+//; ##########################################
+
+//; ###################################
+//; # Input Retime Flops
+//; ###################################
+    ` retimeInputFlops( \%config ) `
+
+//; ###################################
+//; # Instantiate tanh
+//; ###################################
+
+//; # (3.12, -3.12)
+//; sub tanh{ my $a = shift ; return ( ( 1.0 - exp( -2.0 * $a ) ) / ( 1.0 + exp( -2.0 * $a ) ) ) ; }
+//; my $start  =  0.0 ;
+//; my $end    =  4.0 ;
+//; my $count  =  256 ;
+//; my $step   =  ( $end - $start ) / $count ;
+//; my $lshift = 8 ;
+//; sub make_LUT{ 
+//;        my $start  = shift ;
+//;        my $count  = shift ;
+//;        my $step   = shift ;
+//;        my $lshift = shift ; 
+//;        my %tableLut   ;
+//;        for( my $i=0 ; $i < $count ; $i++ ){
+//;            $tableLut{$i} = int( tanh( ($start + $step * ( $i * 1.0 ) )) * exp2( $lshift ) );
+//;        }
+//;        return %tableLut ;
+//; } # End make_LUT
+//;
+//; my %tableLut = make_LUT( $start , $count , $step , $lshift  ) ;
+//; my $shift_right = $im_Frac - 6 ;
+//; my $table_mask  = "8'd255" ;
+//;
+
+// Setup table 
+      logic signed [9:0] tbl[255:0] ;
+//; foreach my $k ( sort keys %tableLut ){
+      assign tbl[`$k`] = signed'( 9'd`$tableLut{$k}` ) ;
+//; } # End 
+   
+// Setup index
+   logic [7:0] 		 idx ;
+   logic 		 u , d  , c ;
+
+   assign u =  signed'( `$rh0{SecondName}` ) >    signed'( 16'd1024 ) ;
+   assign d =  signed'( `$rh0{SecondName}` ) <  - signed'( 16'd1024 ) ;
+   assign c =  signed'( `$rh0{SecondName}` ) >=   signed'( 16'd0 ) ;  
+
+   always_comb begin 
+      unique casex ( {u,d,c} )
+	3'b000  : idx = ( (-signed'(`$rh0{SecondName}`)) >> `$shift_right`) & `$table_mask` ;
+	3'b001  : idx = ( ( signed'(`$rh0{SecondName}`)) >> `$shift_right`) & `$table_mask` ;
+	3'b01x  : idx = 8'd255 ;
+	3'b10x  : idx = 8'd255 ;
+	default : idx = 8'd0 ;
+      endcase
+   end
+
+// Store result in im
+   always_comb begin 
+      unique casex ( {c} )
+	1'b0 : im1 = -signed'(tbl[idx]) ;
+	1'b1 : im1 =  signed'(tbl[idx]) ;  
+      endcase
+   end
+ 
+//;
+//; ##################################
+//; # Instantiate Truncate to Convert
+//; #  intermediate resutlts into lhs
+//; ##################################
+//;
+
+//; if($im_Type eq "float") {
+    ` truncateOutputs( \%config , 'im1' , $im_Exponent , $im_Mantissa  ) `
+//; }else{
+    ` truncateOutputs( \%config , 'im1' , $im_Int , $im_Frac) `
+//; }
+
+//;#    ` truncateOutputs( \%config , 'im1' , $im_Int , $im_Frac, $im_Mantissa, $im_Exponent ) ` 
+//;#    ` truncateOutputs( \%config , 'im1' , $im_Exponent , $im_Mantissa  ) ` 
+
+//; #####################################
+//; # Output Retime Flops
+//; ######################################
+      ` retimeOutputFlops( \%config ) `
+
+
+      
+//;  
+//; } else { # End $dim == 0 code
+//;       $self->error("Unexpected Condition" )
+//; } 
+//;
+   
+endmodule : `mname` 
+
+//; print STDOUT " finish " . $self->mname() . "\n" ;

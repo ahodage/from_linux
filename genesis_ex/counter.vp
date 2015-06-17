@@ -1,0 +1,73 @@
+/*************************************************************************
+ ** From Perforce:
+ **
+ ** $Id: //Smart_design/ChipGen/rtl/Primitives/cfg_ifc.vp#1 $
+ ** $DateTime: 2010/05/07 23:11:33 $
+ ** $Change: 8691 $
+ ** $Author: shacham $
+ *************************************************************************/
+
+/* *****************************************************************************
+ * File: counter.vp
+ * 
+ * Description:
+ * A basic primitive to implement an incrementing or decrementing counter
+ * 
+ * REQUIRED GENESIS PARAMETERS:
+ * ----------------------------
+ * * MAX_VAL: Counter counts between 0 and MAX_VAL
+ * * DECREMENT: When 1, the counter goes backwards from MAX_VAL to 0
+ * * INCREMENT: Number that the counter is incremented
+ * 
+ * OUTPUT GENESIS PARAMETERS
+ * ----------------------------
+ * * WIDTH: Output width of the counter
+ * 
+ * Change bar:
+ * -----------
+ * Date          Author   Description
+ * Dec 13, 2012  Danowitz Initial version
+ * July 23, 2013 danowitz Iniial version for ifc generator
+ * ****************************************************************************/
+
+//;# Include POSIX so we can use the ceil function to compute the output size
+//; use POSIX;
+//;# Define input parameters
+//; my $dec = parameter(name => 'DECREMENT', val => 0);
+//; my $step_size = parameter(name => 'STEP_SIZE', val => 1);
+//;# Pull in I/0 widths
+//; my $out_width = parameter(name => 'WIDTH', val => 8);
+
+//; # Compute other intermediate values
+//; my $operator = '+';
+
+//; if ($dec){
+//;   $operator = '-';
+//; }
+
+module `mname`(
+	       input 				  clk,
+	       input 				  reset,
+	       input 				  advance,
+	       input [`$out_width-1`:0] 	  start_val,
+	       output logic [`$out_width-1`:0] 	  count);
+
+   logic [`$out_width-1`:0] 		 count_next;
+   logic [`$out_width-1`:0] 		 count_generic;
+   
+   always @(posedge clk) begin
+      if (reset)
+	count <= start_val;
+      else
+	count <= count_next;
+   end
+
+   always_comb begin
+      count_generic = count `$operator` `$out_width`'d`$step_size`;
+      
+      if (advance)
+	count_next = count_generic;
+      else
+	count_next = count;
+   end // always_comb
+endmodule //

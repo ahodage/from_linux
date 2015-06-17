@@ -1,0 +1,67 @@
+/********************************************
+ * File: arbiter.vp
+ * Author: Andrew Danowitz
+ * 
+ * Description:
+ * Genesis-based priority arbiter
+ * 
+ * Required Parameters
+ * NUM_INPUTS
+ * PRIORITY
+ * 
+ * 
+ * Change bar:
+ * -----------
+ * Date          Author      Description
+ * Apr 18, 2012  danowitz    init version
+ * 
+ * 
+ * 
+ * ******************************************/
+//; my $mode = $self->get_top_param('MODE');
+//; my $synth = 0;
+//; my $inputs = parameter(Name=>'NUM_INPUTS', Val => 3, Min=>1, Step=>1,
+//;              Doc=>'Number of inputs');
+
+module `mname`(
+	       input logic[`$inputs-1`:0] req,
+	       input logic [`$inputs-1`:0] valid,
+               output logic [`$inputs-1`:0] grant,
+               input logic Clk,
+	       input logic Reset
+	       );
+
+   logic [`$inputs-1`:0] highMask;
+   logic [`$inputs-1`:0] highMaskWin;
+   logic [`$inputs-1`:0] lowMask;
+   logic [`$inputs-1`:0] lowMaskWin;
+   logic [`$inputs-1`:0] win;
+   logic [`$inputs-1`:0] prev;
+   logic [`$inputs-1`:0] reqB;
+   
+   always @ (posedge Clk) begin
+      if (Reset)
+	prev <= 'b0;
+      else
+	prev <= grant;
+   end
+
+   assign reqB = req & valid;
+   
+   assign lowMask = (prev<<1 - `$inputs`'b1);
+   assign lowMaskWin = lowMask & reqB;
+   
+   assign highMask = ~lowMask;
+   assign highMaskWin = highMask & reqB;
+
+   assign win = |highMaskWin ? highMaskWin : lowMaskWin;
+   assign grant = win & -win;
+
+//; if ($mode eq 'VERIF'){
+   assert property (@(posedge Clk) (($onehot(grant)| grant =='b0) | Reset)) 
+     else $error("grant not OH, val is %b", grant);
+//; } 
+  
+endmodule //
+
+   

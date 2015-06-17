@@ -1,0 +1,167 @@
+/******************************************************************************/
+/* fifo.vp                                                                    */
+/*    John Brunhaver jbrunhaver@gmail.com                                     */
+/******************************************************************************/
+/*                                                                            */
+/*  Wrapper around DW Fifo                                                    */
+/*                                                                            */
+/*                                                                            */
+/******************************************************************************/
+/* Copyright (c) 2012, Stanford and John Brunhaver. All rights reserved.      */
+/*                                                                            */
+/* Redistribution and use in source and binary forms, with or without         */
+/* modification, are permitted provided that the following conditions         */
+/* are met:                                                                   */
+/*  * Redistributions of source code must retain the above copyright          */
+/*    notice, this list of conditions and the following disclaimer.           */
+/*  * Redistributions in binary form must reproduce the above copyright       */
+/*    notice, this list of conditions and the following disclaimer in the     */
+/*    documentation and/or other materials provided with the distribution.    */
+/*  * Neither the name of Stanford nor the names of its                       */
+/*    contributors may be used to endorse or promote products derived         */
+/*    from this software without specific prior written permission.           */
+/*                                                                            */
+/* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ''AS IS'' AND ANY       */
+/* EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE          */
+/* IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR         */
+/* PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR          */
+/* CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,      */
+/* EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,        */
+/* PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR         */
+/* PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY        */
+/* OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT               */
+/* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE      */
+/* OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.       */
+/******************************************************************************/
+
+//;
+//;# Import Libs
+//; use POSIX qw( floor ceil log ) ;
+//; use strict ;
+//; use warnings FATAL=>qw(all) ;
+//; use diagnostics ;
+//; use conv_utility ;
+//; use YAML::Any ;
+//; use Data::Dumper ;
+//;
+
+//;
+////////////////////////////////////////////////////////////////////////////
+// PARMETERS 
+////////////////////////////////////////////////////////////////////////////  
+//;
+//;
+//; my $Width   = parameter( name=>'Width' , val=>[16] , 
+//;                          doc=>" The data width for input and output data as an array" );
+//; my $Depth   = parameter( name=>"Depth" , val=>2 ,
+//;                          doc=>" The number of elements in the FIFO " );
+//; my $AEDepth = parameter( name=>"AlmostEmptyDepth" , val=>1 , 
+//;                          doc=>" occupancy at which to raise almost empty flag " );
+//; my $AFDepth = parameter( name=>"AlmostFullDepth" , val=>1 ,
+//;                          doc=>" occupancy at which to raise almost full flag " );
+//;
+//;
+//; my @W = @{$Width} ;
+//; my $US = "";
+//; for( my $i = 0 ; $i <= $#W ; $i++ ){ $US .= "[" . ($W[$i]-1) . ":0]"; }
+//;
+//; my $US2 = "[" . ($Depth-1) . ":0]" . $US ;
+//;
+//; my $ConWidth = 1 ;
+//; for(my $i=0 ; $i <= $#W ; $i++){ $ConWidth *= $W[$i] ; } 
+//;
+
+//fifo
+module `mname` (
+
+		input logic  clk, 
+		input logic  rst,
+		
+		input logic  pop,
+		input logic  push,
+
+		output logic full,
+		output logic almost_full,
+		output logic empty,
+		output logic almost_empty,
+
+		input logic  `$US` din ,
+		output logic `$US` dout 
+		
+		);
+
+
+//;
+//; foreach my $sig ( qw( pop  push full almost_full empty almost_empty din dout)  ) {
+//;    print   checkSignal( $self , $sig ) ;
+//; }
+//;
+
+   
+//; if( $ConWidth <= 2048 ){
+
+   logic 		     error_inst ;
+   logic                     half_full ;
+     
+   DW_fifo_s1_sf #( `$ConWidth` , `$Depth`, `$AEDepth` , `$AFDepth` , 0, 0)
+   U1 (.clk(clk), 
+       .rst_n(rst), 
+       .push_req_n(~push),
+       .pop_req_n(~pop), 
+       .diag_n(1'b1), // ' 
+       .data_in(din), 
+       .empty(empty),
+       .almost_empty(almost_empty),
+       .half_full(half_full),
+       .almost_full(almost_full), 
+       .full(full),
+       .error(error_inst), 
+       .data_out(dout) 
+       );
+
+   // TODO -> Does this cause any synthesis issues ? Does this provide the correct synthesis hint?
+   assert property ( @(posedge clk) ~error_inst );
+
+//; } else {
+   
+   //; my $s = int(ceil($ConWidth/2048.0)) ;
+
+   logic 	[`$s-1`:0]	     full_sl;
+   logic 	[`$s-1`:0]	     almost_full_sl;
+   logic 	[`$s-1`:0]	     empty_sl;
+   logic 	[`$s-1`:0]	     almost_empty_sl;
+   assign full         = | full_sl ;
+   assign almost_full  = | almost_full_sl ;
+   assign empty        = | empty_sl ;
+   assign almost_empty = | almost_empty_sl ;
+   
+   //; for( my $i = 0 ; $i < $s ; $i++ ){
+   //;    my $ss = $i < ($s-1) ? 2048 : $ConWidth - (($s-1) * 2048) ;
+   //;    my $a  = $i*2048 ;
+   //;    my $z  = $a+$ss-1 ;
+   //;    my $sl = generate( 'fifo' , 'my_fifo_' . $i , Width=>[$ss] , Depth=>$Depth , AlmostEmptyDepth=>$AEDepth , AlmostFullDepth=>$AFDepth ) ;
+   `$sl->instantiate` (
+		       .clk(clk), 
+		       .rst(rst),
+	     	       .pop(pop),
+		       .push(push),
+		       .full(full_sl[`$i`]),
+		       .almost_full(almost_full_sl[`$i`]),
+		       .empty(empty_sl[`$i`]),
+		       .almost_empty(almost_empty_sl[`$i`]),
+		       .din(din[`$z`:`$a`]) ,
+		       .dout(dout[`$z`:`$a`]) 
+		       ) ;		
+     //; } #End foreach 2048b chunk
+
+   //; if( getVERIFMODE($self) ){
+     assert property ( @( posedge clk )  ( (|         full_sl) == (& full_sl         ) ) || !rst ) else $error( "Error in unrolled fifo" ) ;
+     assert property ( @( posedge clk )  ( (|  almost_full_sl) == (& almost_full_sl  ) ) || !rst ) else $error( "Error in unrolled fifo" ) ;
+     assert property ( @( posedge clk )  ( (|        empty_sl) == (& empty_sl        ) ) || !rst ) else $error( "Error in unrolled fifo" ) ;
+     assert property ( @( posedge clk )  ( (| almost_empty_sl) == (& almost_empty_sl ) ) || !rst ) else $error( "Error in unrolled fifo" ) ;
+   //; }
+       
+ //; } #End if DW component will break because elemnt count
+
+endmodule : `mname`
+
